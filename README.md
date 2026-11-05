@@ -10,7 +10,8 @@ markdown knowledge base, to Claude: as a custom connector in Claude chat
 For the full, always-up-to-date walkthrough (with screenshots-equivalent
 step-by-step and troubleshooting), see the in-app guide at
 [kennr.oftomorrow.eu/?view=help](https://kennr.oftomorrow.eu/?view=help).
-This README is the short version.
+Inside the app, the **Help** entry in the sidebar opens the `kennr-help`
+vault with how-to pages and examples. This README is the short version.
 
 ## Track 1 — Claude chat / Cowork (custom connector)
 
@@ -38,15 +39,12 @@ inside a Cowork session.
 6. In a conversation, click the **+** button in the lower-left of the chat
    box, choose **Connectors**, and toggle **Kennr** on for that
    conversation.
-7. Optional — for richer instructions than the connector alone gives
-   Claude, upload the `kennr` skill zip too: download it from
-
-   ```
-   https://github.com/toppynl/kennr-plugin/releases/latest/download/kennr-skill.zip
-   ```
-
-   then go to **Settings → Customize → Skills → + → Create skill →
-   Upload a skill** and upload the file. No build step needed.
+7. Optional — a chat skill that tells Claude when to read from Kennr and
+   when to offer saving. At Toppy this is the `toppy-kennr` skill from
+   [toppynl/claude-plugins](https://github.com/toppynl/claude-plugins),
+   enabled for the whole organisation, so members don't upload anything.
+   The `kennr` skill zip from this repo (see below) is about Claude Code
+   subagent routing and adds little in chat.
 8. Test it — send this in the conversation where you enabled Kennr:
 
    ```
@@ -114,6 +112,8 @@ a local wiki, Obsidian vault, or any other note-taking system is
 unaffected and out of scope for this plugin.
 
 ## Skill-only zip (for the chat track)
+
+Not recommended for chat at Toppy: use `toppy-kennr` (see Track 1, step 7).
 
 claude.ai/Desktop/Cowork skill uploads don't support Claude Code
 subagents or MCP model routing — only the skill itself. The download

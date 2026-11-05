@@ -37,6 +37,13 @@ Don't do vault lookups or writes yourself in the main thread when a
 subagent can do it for less — that's the entire point of having them.
 Only fall back to doing it directly if neither subagent is available.
 
+## Session start
+
+At the start of a session, call `me` once (directly, no subagent needed):
+it returns only the user's own me.md (max 2,000 characters) — who they are
+and how they want to be helped. Follow it. `whoami` is for the role check
+before writing, not for session start.
+
 ## Write etiquette (what vault-writer enforces, for your awareness)
 
 1. Read the vault's contract first — call `vault_info`, whose `contract`
@@ -52,6 +59,9 @@ Only fall back to doing it directly if neither subagent is available.
 4. Prefer the narrowest tool: `section_write`/`frontmatter_set` for a
    scoped change, `edit` for a diff, `write` only for a full replace or
    new page.
+5. Keep pages short: a warning above 6,000 characters, refused above
+   10,000. When a page grows, split it into a short hub page with links
+   to subpages.
 
 ## Not in scope here
 
